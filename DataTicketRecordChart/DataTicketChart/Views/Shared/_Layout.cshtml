@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bienvenido</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/loader.js"></script>
+    <script src="~/Scripts/services.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-tabs">
+                    <a class="nav-link" href="../DataTicket/Index">Consultas Gráficos Socios</a>
+                </li>
+                <li class="nav-tabs">
+                    <a class="nav-link" href="../DataTicket/ClientRecord">Registro de Socio Gráfico</a>
+                </li>
+                <li class="nav-tabs">
+                    <a class="nav-link" href="../DataTicket/ClientRecordTicket">Registro de Ticket Socio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    <div class="fixed-top">
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-3">
+                <br />
+                <div class="alert alert-success" role="alert" id="alert">
+                    <strong><label id="message"></label></strong>
+                </div>
+                <div class="alert alert-danger" role="alert" id="alertError">
+                    <strong><label id="messageError"></label></strong>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+﻿@{
+    ViewBag.Title = "Registro de ticket para Socios ";
+}
+<style>
+    label span.error {
+        color: red;
+    }
+</style>
+<div class="card bg-light ">
+    <div class="card-header h4">Registro de ticket para Socio</div>
+    <div class="card-body">
+        <div class="form-row mb-1">
+            <label for="client" class="col-sm-2 col-form-label text-right h6">Seleccione un Socio:</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="client"></select>
+            </div>
+            <div class="col-md-1 text-right">
+                <div class="col">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="radioTicketCompleto" name="radioTicketCompleto" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="radioTicketCompleto">Completo</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="radioTicketParcial" name="radioTicketParcial" value="2" class="custom-control-input">
+                        <label class="custom-control-label" for="radioTicketParcial">Parcial</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <input id="printTicketClient" type="button" class="btn btn-success" value="Imprimir Ticket">
+            </div>
+            <div class="col-md-2 text-center">
+                <input id="sendTicketClient" type="button" class="btn btn-primary" value="Enviar Ticket por Email">
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <form id="form">
+            <br />
+            <div class="h6"><strong>Pliegues y Trigliceridos: </strong></div>
+            <div class="form-row">
+                <div class="col-md">
+                    <label for="pliegueTricipal" class="col-sm col-form-label text-center">Pliegue Tricipal:</label>
+                    <div class="input-group ">
+                        <input id="pliegueTricipal" name="pliegueTricipal" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.mg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <label for="pliegueEscapular" class="col-sm col-form-label text-center">Pliegue Escapular:</label>
+                    <div class="input-group ">
+                        <input id="pliegueEscapular" name="pliegueEscapular" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.mg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <label for="trigliceridos" class="col-sm col-form-label text-center">Trigliceridos</label>
+                    <div class="input-group ">
+                        <input id="trigliceridos" name="trigliceridos" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.ml/dl</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="h6"><strong>Colesterol, glucosa y frecuencía cardiaca</strong></div>
+            <div class="form-row mb-1">
+                <div class="col-md">
+                    <label for="Colesterol" class="col-sm col-form-label text-center">Colesterol</label>
+                    <div class="input-group ">
+                        <input id="Colesterol" name="Colesterol" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.ml/dl</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <label for="Glucosa" class="col-sm col-form-label text-center">Glucosa</label>
+                    <div class="input-group ">
+                        <input id="Glucosa" name="Glucosa" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.mg/dl</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <label for="frecuenciaCardiaca" class="col-sm col-form-label text-center">Frecuencía Cardiaca:</label>
+                    <div class="input-group ">
+                        <input id="frecuenciaCardiaca" name="frecuenciaCardiaca" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.mg/dl</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="h6"> <strong>Presión Arteriales  </strong></div>
+            <div class="form-row mb-1">
+                <div class="col-md-6">
+                    <label for="frecuanciArtSisfolica" class="col-sm col-form-label text-center">Presión Arterial Sisfolica:</label>
+                    <div class="input-group ">
+                        <input id="frecuanciArtSisfolica" name="frecuanciArtSisfolica" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">l/min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="frecuanciArtDiasfolica" class="col-sm col-form-label text-center">presión Arterial Diasfolica:</label>
+                    <div class="input-group ">
+                        <input id="frecuanciArtDiasfolica" name="frecuanciArtDiasfolica" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">l/min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="h6"> <strong>Porcentajes de Carga y metabolismo </strong></div>
+            <div class="form-row mb-1">
+                <div class="col-md">
+                    <label for="porcentajeCargaPecho" class="col-sm col-form-label text-center">% Porcentaje Carga Pecho:</label>
+                    <div class="input-group ">
+                        <input id="porcentajeCargaPecho" name="porcentajeCargaPecho" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <label for="porcentajeCargaPierna" class="col-sm col-form-label text-center">% Porcentaje Carga Pierna:</label>
+                    <div class="input-group ">
+                        <input id="porcentajeCargaPierna" name="porcentajeCargaPierna" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <label for="metabolismoBasal" class="col-sm col-form-label text-center">Metabolismo Basal:</label>
+                    <div class="input-group ">
+                        <input id="metabolismoBasal" name="metabolismoBasal" type="number" class="form-control" placeholder="00.00" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.cm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-1">
+                <div class="col-md">
+                    <label for="employee" class="col-sm-2 col-form-label text-right h6"> Registrado por:</label>
+                    <div class="input-group ">
+                        <select class="form-control" id="employee"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-1">
+                <div class="col text-center">
+                    <br />
+                    <input id="saveClientTicketRecord" type="submit" class="btn btn-success" value="Guardar Registro">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/Scripts/DataClientRecordTicket.js"></script>
+<script src="~/Scripts/DataClientComun.js"></script>

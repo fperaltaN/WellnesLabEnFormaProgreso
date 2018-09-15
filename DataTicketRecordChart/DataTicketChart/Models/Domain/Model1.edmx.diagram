@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1aaa65166b8d43aa95a760366ff67288" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="EnFormaModel.TblRecordTicket" Width="1.5" PointX="2.75" PointY="7.375" />
+        <EntityTypeShape EntityType="EnFormaModel.TblRecordsSocio" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="EnFormaModel.TblHistorialPeso" Width="1.5" PointX="2.75" PointY="4.25" />
+        <EntityTypeShape EntityType="EnFormaModel.TblRecord" Width="1.5" PointX="5.875" PointY="2" />
+        <AssociationConnector Association="EnFormaModel.FK_TblRecordsSocio_TblRecord" />
+        <EntityTypeShape EntityType="EnFormaModel.TBL_PERFILES" Width="1.5" PointX="8.375" PointY="1.625" />
+        <EntityTypeShape EntityType="EnFormaModel.TBL_USUARIOS" Width="1.5" PointX="10.625" PointY="1" />
+        <AssociationConnector Association="EnFormaModel.FK_TBL_USUARIOS_TBL_PERFILES" />
+        <EntityTypeShape EntityType="EnFormaModel.TblEmpleado" Width="1.5" PointX="8.375" PointY="5.75" />
+        <EntityTypeShape EntityType="EnFormaModel.TblSocio" Width="1.5" PointX="0.75" PointY="3.875" />
+        <AssociationConnector Association="EnFormaModel.FK_TblHistorialPeso_TblSocio" />
+        <AssociationConnector Association="EnFormaModel.FK_TblRecordsSocio_TblSocio" />
+        <AssociationConnector Association="EnFormaModel.FK_TblRecordTicket_TblSocio_id_socio" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

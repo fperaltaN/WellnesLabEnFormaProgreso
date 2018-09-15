@@ -1,0 +1,314 @@
+﻿@{
+    ViewBag.Title = "Registro de datos para gráficos de Socio";
+}
+<style>
+    label span.error {
+        color: red;
+    }
+</style>
+<div class="card bg-light ">
+    <div class="card-header h4">Registro de datos para gráficos de Socio</div>
+    <div class="card-body">
+        <div class="form-row mb-1">
+            <label for="client" class="col-sm-2 col-form-label text-right h6">Seleccione un Socio:</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="client"></select>
+            </div>
+            <div class="col-md-1 text-right">
+                <div class="col">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadioCompleto" name="customRadioCompleto" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="customRadioCompleto">Completo</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadioParcial" name="customRadioParcial" value="2" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioParcial">Parcial</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 text-right">
+                <div class="col">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadioHombre" name="customRadioHombre" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="customRadioHombre">Hombre</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadioMujer" name="customRadioMujer" value="2" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioMujer">Mujer</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <input id="printTicket" type="button" class="btn btn-success" value="Imprimir Ticket">
+            </div>
+            <div class="col-md-2 text-center">
+                <input id="sendTicket" type="button" class="btn btn-primary" value="Enviar Ticket por Email">
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <form id="form">
+            <br />
+            @*<div class="collapse navbar-collapse" id="navbarNavRecord">*@
+            <ul class="navbar-nav">
+                <li class="nav-tabs">
+                    <div class="h6"> <strong>Datos del Socio</strong></div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="altura" class="col-sm col-form-label text-center">Altura</label>
+                            <div class="input-group ">
+                                <input id="altura" name="altura" type="number" class="form-control" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="talla" class="col-sm col-form-label text-center">Talla</label>
+                            <div class="input-group ">
+                                <input id="talla" name="talla" type="text" class="form-control" placeholder="00.00" required>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="edad" class="col-sm col-form-label text-center">Edad</label>
+                            <div class="input-group ">
+                                <input id="edad" name="edad" type="number" class="form-control" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.años</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </li>
+                <li class="nav-tabs">
+                    <div class="h6"> <strong>Peso </strong></div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="pesoInicial" class="col-sm col-form-label text-center">Peso Inicial</label>
+                            <div class="input-group ">
+                                <input id="pesoInicial" name="pesoInicial" type="number" class="form-control " placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="pesoActual" class="col-sm col-form-label text-center">Peso Actual</label>
+                            <div class="input-group ">
+                                <input id="pesoActual" name="pesoActual" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="pesoBajado" class="col-sm col-form-label text-center"><strong>Peso Bajado</strong></label>
+                            <div class="input-group ">
+                                <input id="pesoBajado" name="pesoBajado" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.kg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </li>
+                <li class="nav-tabs">
+                    <div class="h6"> <strong>Abd. Alto </strong></div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="circCinturaInicial" class="col-sm col-form-label text-center">Circunferencia Cintura Inicial</label>
+                            <div class="input-group ">
+                                <input id="circCinturaInicial" name="circCinturaInicial" type="number" class="form-control" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="circCinturaActual" class="col-sm col-form-label text-center">Circunferencia Cintura Actual</label>
+                            <div class="input-group ">
+                                <input id="circCinturaActual" name="circCinturaActual" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="circCinturaBajado" class="col-sm col-form-label text-center"><strong>Circunferencia Cintura Bajado</strong></label>
+                            <div class="input-group ">
+                                <input id="circCinturaBajado" name="circCinturaBajado" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </li>
+                <li class="nav-tabs">
+                    <div class="h6"> <strong>Abd. Bajo </strong></div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="circCaderaInicial" class="col-sm col-form-label text-center">Circunferencia Cadera Inicial</label>
+                            <div class="input-group ">
+                                <input id="circCaderaInicial" name="circCaderaInicial" type="number" class="form-control" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="circCaderaActual" class="col-sm col-form-label text-center">Circunferencia Cadera Actual</label>
+                            <div class="input-group ">
+                                <input id="circCaderaActual" name="circCaderaActual" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="circCaderaBajado" class="col-sm col-form-label text-center"><strong>Circunferencia Cadera Bajado</strong></label>
+                            <div class="input-group ">
+                                <input id="circCaderaBajado" name="circCaderaBajado" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </li>
+                <li class="nav-tabs">
+                    <div class="h6"> <strong>Pecho </strong> </div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="circPechoInicial" class="col-sm col-form-label text-center">Circunferencia Pecho Inicial</label>
+                            <div class="input-group ">
+                                <input id="circPechoInicial" name="circPechoInicial" type="number" class="form-control" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="circPechoActual" class="col-sm col-form-label text-center">Circunferencia Pecho Actual</label>
+                            <div class="input-group ">
+                                <input id="circPechoActual" name="circPechoActual" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="circPechoBajado" class="col-sm col-form-label text-center"><strong>Circunferencia Pecho Bajado</strong></label>
+                            <div class="input-group ">
+                                <input id="circPechoBajado" name="circPechoBajado" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.cm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </li>
+                <li class="nav-tabs">
+                    <div class="h6"> <strong>IMC /PIE </strong></div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="grasaCorporal" class="col-sm col-form-label text-center">Grasa Corporal</label>
+                            <div class="input-group ">
+                                <input id="grasaCorporal" name="grasaCorporal" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="porceEntrenamiento" class="col-sm col-form-label text-center">Porcentaje de Entrenamiento</label>
+                            <div class="input-group ">
+                                <input id="porceEntrenamiento" name="porceEntrenamiento" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="frecCardicaReposo" class="col-sm col-form-label text-center">Frecuencía Cardica en Reposo</label>
+                            <div class="input-group ">
+                                <input id="frecCardicaReposo" name="frecCardicaReposo" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="frecCardicaMaxima" class="col-sm col-form-label text-center"><strong>Frecuencía Cardica Máxima</strong></label>
+                            <div class="input-group ">
+                                <input id="frecCardicaMaxima" name="frecCardicaMaxima" type="number" class="form-control calc" placeholder="00.00" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="imc" class="col-sm col-form-label text-center"><strong>IMC</strong></label>
+                            <div class="input-group ">
+                                <input id="imc" name="imc" type="text" class="form-control calc" placeholder="00.00" required>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="pie" class="col-sm col-form-label text-center"><strong>P.I.E</strong></label>
+                            <div class="input-group ">
+                                <input id="pie" name="pie" type="number" class="form-control calc" placeholder="00.00" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </li>
+                <li class="nav-tabs">
+                    <div class="h6"><strong>Adicionales </strong></div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="guia" class="col-sm col-form-label text-center">Guia</label>
+                            <div class="input-group ">
+                                <input id="guia" name="guia" type="text" class="form-control" placeholder="Introduce las guia de datos" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="observaciones" class="col-sm col-form-label text-center">Observaciones</label>
+                            <div class="input-group ">
+                                <input id="observaciones" name="observaciones" type="text" class="form-control" placeholder="Observaciones / Persona que Registro" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-1">
+                        <div class="col-md">
+                            <label for="employee" class="col-sm-2 col-form-label text-right h6"> Registrado por:</label>
+                            <div class="input-group ">
+                                <select class="form-control" id="employee"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-1">
+                        <div class="col text-center">
+                            <br />
+                            <input id="saveClientRecord" type="submit" class="btn btn-success" value="Guardar Registro">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            @*</div>*@
+        </form>
+    </div>
+</div>
+<script src="~/Scripts/DataClientRecord.js"></script>
+<script src="~/Scripts/DataClientComun.js"></script>

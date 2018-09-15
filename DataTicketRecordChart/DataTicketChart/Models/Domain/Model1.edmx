@@ -1,0 +1,851 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EnFormaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_PERFILES">
+          <Key>
+            <PropertyRef Name="ID_PERFIL" />
+          </Key>
+          <Property Name="ID_PERFIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERFIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ACTIVO" Type="bit" Nullable="false" />
+          <Property Name="CREADO" Type="datetime" Nullable="false" />
+          <Property Name="CREADOPOR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ACTUALIZADO" Type="datetime" Nullable="false" />
+          <Property Name="ACTUALIZADOPOR" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="APELLIDO_PAT" Type="varchar" MaxLength="100" />
+          <Property Name="APELLIDO_MAT" Type="varchar" MaxLength="100" />
+          <Property Name="ID_AREA" Type="int" Nullable="false" />
+          <Property Name="USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_PERFIL" Type="int" Nullable="false" />
+          <Property Name="ACTIVO" Type="bit" Nullable="false" />
+          <Property Name="CREADO" Type="datetime" Nullable="false" />
+          <Property Name="CREADOPOR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ACTUALIZADO" Type="datetime" Nullable="false" />
+          <Property Name="ACTUALIZADOPOR" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmpleado">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_empleado" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ap_paterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ap_materno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="text" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+          <Property Name="fecha_baja" Type="datetime" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="id_perfil" Type="int" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TblHistorialPeso">
+          <Key>
+            <PropertyRef Name="id_historial" />
+          </Key>
+          <Property Name="id_historial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_socio" Type="int" Nullable="false" />
+          <Property Name="prev_peso" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="prev_alto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="prev_bajo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="prev_pecho" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblRecord">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pesoInicial" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="pesoBajado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="pesoActual" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circCinturaInicial" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circCinturaBajado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circCinturaActual" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circCaderaInicial" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circCaderaBajado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circCaderaActual" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circPechoInicial" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circPechoBajado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="circPechoActual" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="altura" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="talla" Type="varchar" MaxLength="50" />
+          <Property Name="grasaCorporal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="edad" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="frecCardicaMaxima" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="frecCardicaReposo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="porceEntrenamiento" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="imc" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="pie" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="guia" Type="varchar" MaxLength="250" />
+          <Property Name="observaciones" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TblRecordsSocio">
+          <Key>
+            <PropertyRef Name="id_relation" />
+          </Key>
+          <Property Name="id_relation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_socio" Type="int" Nullable="false" />
+          <Property Name="id_record" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblRecordTicket">
+          <Key>
+            <PropertyRef Name="id_record_ticket" />
+          </Key>
+          <Property Name="id_record_ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_socio" Type="int" Nullable="false" />
+          <Property Name="pliegueTricipal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="pliegueEscapular" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="trigliceridos" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Colesterol" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Glucosa" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="frecuenciaCardiaca" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="frecuanciArtSisfolica" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="frecuanciArtDiasfolica" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="porcentajeCargaPecho" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="porcentajeCargaPierna" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="metabolismoBasal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblSocio">
+          <Key>
+            <PropertyRef Name="id_socio" />
+          </Key>
+          <Property Name="id_socio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_socio" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ap_paterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ap_materno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="text" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+          <Property Name="fecha_baja" Type="datetime" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="compEstudios" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TBL_USUARIOS_TBL_PERFILES">
+          <End Role="TBL_PERFILES" Type="Self.TBL_PERFILES" Multiplicity="1" />
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERFILES">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblHistorialPeso_TblSocio">
+          <End Role="TblSocio" Type="Self.TblSocio" Multiplicity="1" />
+          <End Role="TblHistorialPeso" Type="Self.TblHistorialPeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSocio">
+              <PropertyRef Name="id_socio" />
+            </Principal>
+            <Dependent Role="TblHistorialPeso">
+              <PropertyRef Name="id_socio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecordsSocio_TblRecord">
+          <End Role="TblRecord" Type="Self.TblRecord" Multiplicity="1" />
+          <End Role="TblRecordsSocio" Type="Self.TblRecordsSocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecord">
+              <PropertyRef Name="id_record" />
+            </Principal>
+            <Dependent Role="TblRecordsSocio">
+              <PropertyRef Name="id_record" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecordsSocio_TblSocio">
+          <End Role="TblSocio" Type="Self.TblSocio" Multiplicity="1" />
+          <End Role="TblRecordsSocio" Type="Self.TblRecordsSocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSocio">
+              <PropertyRef Name="id_socio" />
+            </Principal>
+            <Dependent Role="TblRecordsSocio">
+              <PropertyRef Name="id_socio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecordTicket_TblSocio_id_socio">
+          <End Role="TblSocio" Type="Self.TblSocio" Multiplicity="1" />
+          <End Role="TblRecordTicket" Type="Self.TblRecordTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSocio">
+              <PropertyRef Name="id_socio" />
+            </Principal>
+            <Dependent Role="TblRecordTicket">
+              <PropertyRef Name="id_socio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="add_HistorialPesoSocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_socio" Type="int" Mode="In" />
+          <Parameter Name="pesoInicial" Type="decimal" Mode="In" />
+          <Parameter Name="pesoBajado" Type="decimal" Mode="In" />
+          <Parameter Name="pesoActual" Type="decimal" Mode="In" />
+          <Parameter Name="circCinturaInicial" Type="decimal" Mode="In" />
+          <Parameter Name="circCinturaBajado" Type="decimal" Mode="In" />
+          <Parameter Name="circCinturaActual" Type="decimal" Mode="In" />
+          <Parameter Name="circCaderaInicial" Type="decimal" Mode="In" />
+          <Parameter Name="circCaderaBajado" Type="decimal" Mode="In" />
+          <Parameter Name="circCaderaActual" Type="decimal" Mode="In" />
+          <Parameter Name="circPechoInicial" Type="decimal" Mode="In" />
+          <Parameter Name="circPechoBajado" Type="decimal" Mode="In" />
+          <Parameter Name="circPechoActual" Type="decimal" Mode="In" />
+          <Parameter Name="altura" Type="decimal" Mode="In" />
+          <Parameter Name="talla" Type="varchar" Mode="In" />
+          <Parameter Name="grasaCorporal" Type="decimal" Mode="In" />
+          <Parameter Name="edad" Type="decimal" Mode="In" />
+          <Parameter Name="frecCardicaMaxima" Type="decimal" Mode="In" />
+          <Parameter Name="frecCardicaReposo" Type="decimal" Mode="In" />
+          <Parameter Name="porceEntrenamiento" Type="decimal" Mode="In" />
+          <Parameter Name="imc" Type="decimal" Mode="In" />
+          <Parameter Name="pie" Type="decimal" Mode="In" />
+          <Parameter Name="guia" Type="varchar" Mode="In" />
+          <Parameter Name="observaciones" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sel_byId_empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_empleado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sel_empleado_new" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sel_HistorialPesoSocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_socio" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="EnFormaModelStoreContainer">
+          <EntitySet Name="TBL_PERFILES" EntityType="Self.TBL_PERFILES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_USUARIOS" EntityType="Self.TBL_USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmpleado" EntityType="Self.TblEmpleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblHistorialPeso" EntityType="Self.TblHistorialPeso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblRecord" EntityType="Self.TblRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblRecordsSocio" EntityType="Self.TblRecordsSocio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblRecordTicket" EntityType="Self.TblRecordTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSocio" EntityType="Self.TblSocio" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBL_USUARIOS_TBL_PERFILES" Association="Self.FK_TBL_USUARIOS_TBL_PERFILES">
+            <End Role="TBL_PERFILES" EntitySet="TBL_PERFILES" />
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblHistorialPeso_TblSocio" Association="Self.FK_TblHistorialPeso_TblSocio">
+            <End Role="TblSocio" EntitySet="TblSocio" />
+            <End Role="TblHistorialPeso" EntitySet="TblHistorialPeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecordsSocio_TblRecord" Association="Self.FK_TblRecordsSocio_TblRecord">
+            <End Role="TblRecord" EntitySet="TblRecord" />
+            <End Role="TblRecordsSocio" EntitySet="TblRecordsSocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecordsSocio_TblSocio" Association="Self.FK_TblRecordsSocio_TblSocio">
+            <End Role="TblSocio" EntitySet="TblSocio" />
+            <End Role="TblRecordsSocio" EntitySet="TblRecordsSocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecordTicket_TblSocio_id_socio" Association="Self.FK_TblRecordTicket_TblSocio_id_socio">
+            <End Role="TblSocio" EntitySet="TblSocio" />
+            <End Role="TblRecordTicket" EntitySet="TblRecordTicket" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnFormaModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EnFormaEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <FunctionImport Name="add_HistorialPesoSocio">
+            <Parameter Name="id_socio" Mode="In" Type="Int32" />
+            <Parameter Name="peso" Mode="In" Type="Decimal" />
+            <Parameter Name="pesoi" Mode="In" Type="Decimal" />
+            <Parameter Name="pesob" Mode="In" Type="Decimal" />
+            <Parameter Name="abdai" Mode="In" Type="Decimal" />
+            <Parameter Name="abda" Mode="In" Type="Decimal" />
+            <Parameter Name="abdab" Mode="In" Type="Decimal" />
+            <Parameter Name="abdbi" Mode="In" Type="Decimal" />
+            <Parameter Name="abdb" Mode="In" Type="Decimal" />
+            <Parameter Name="abdbb" Mode="In" Type="Decimal" />
+            <Parameter Name="caderai" Mode="In" Type="Decimal" />
+            <Parameter Name="cadera" Mode="In" Type="Decimal" />
+            <Parameter Name="caderatb" Mode="In" Type="Decimal" />
+            <Parameter Name="altura" Mode="In" Type="Decimal" />
+            <Parameter Name="talla" Mode="In" Type="String" />
+            <Parameter Name="grasac" Mode="In" Type="Decimal" />
+            <Parameter Name="imc" Mode="In" Type="Decimal" />
+            <Parameter Name="ta" Mode="In" Type="Decimal" />
+            <Parameter Name="guia" Mode="In" Type="Decimal" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sel_HistorialPeso" ReturnType="Collection(EnFormaModel.sel_HistorialPeso_Result)">
+          <Parameter Name="id_socio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sel_socio_new" ReturnType="Collection(EnFormaModel.sel_socio_new_Result)" />
+          <EntitySet Name="TblRecordTicket" EntityType="EnFormaModel.TblRecordTicket" />
+          <EntitySet Name="TblRecordsSocio" EntityType="EnFormaModel.TblRecordsSocio" />
+          <EntitySet Name="TblHistorialPeso" EntityType="EnFormaModel.TblHistorialPeso" />
+          <EntitySet Name="TblRecord" EntityType="EnFormaModel.TblRecord" />
+          <AssociationSet Name="FK_TblRecordsSocio_TblRecord" Association="EnFormaModel.FK_TblRecordsSocio_TblRecord">
+            <End Role="TblRecord" EntitySet="TblRecord" />
+            <End Role="TblRecordsSocio" EntitySet="TblRecordsSocio" />
+          </AssociationSet>
+          <FunctionImport Name="add_HistorialPesoSocio1">
+            <Parameter Name="id_socio" Mode="In" Type="Int32" />
+            <Parameter Name="pesoInicial" Mode="In" Type="Decimal" />
+            <Parameter Name="pesoBajado" Mode="In" Type="Decimal" />
+            <Parameter Name="pesoActual" Mode="In" Type="Decimal" />
+            <Parameter Name="circCinturaInicial" Mode="In" Type="Decimal" />
+            <Parameter Name="circCinturaBajado" Mode="In" Type="Decimal" />
+            <Parameter Name="circCinturaActual" Mode="In" Type="Decimal" />
+            <Parameter Name="circCaderaInicial" Mode="In" Type="Decimal" />
+            <Parameter Name="circCaderaBajado" Mode="In" Type="Decimal" />
+            <Parameter Name="circCaderaActual" Mode="In" Type="Decimal" />
+            <Parameter Name="circPechoInicial" Mode="In" Type="Decimal" />
+            <Parameter Name="circPechoBajado" Mode="In" Type="Decimal" />
+            <Parameter Name="circPechoActual" Mode="In" Type="Decimal" />
+            <Parameter Name="altura" Mode="In" Type="Decimal" />
+            <Parameter Name="talla" Mode="In" Type="String" />
+            <Parameter Name="grasaCorporal" Mode="In" Type="Decimal" />
+            <Parameter Name="edad" Mode="In" Type="Decimal" />
+            <Parameter Name="frecCardicaMaxima" Mode="In" Type="Decimal" />
+            <Parameter Name="frecCardicaReposo" Mode="In" Type="Decimal" />
+            <Parameter Name="porceEntrenamiento" Mode="In" Type="Decimal" />
+            <Parameter Name="imc" Mode="In" Type="Decimal" />
+            <Parameter Name="pie" Mode="In" Type="Decimal" />
+            <Parameter Name="guia" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sel_HistorialPesoSocio" ReturnType="Collection(EnFormaModel.sel_HistorialPesoSocio_Result)">
+          <Parameter Name="id_socio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="TBL_PERFILES" EntityType="EnFormaModel.TBL_PERFILES" />
+          <EntitySet Name="TBL_USUARIOS" EntityType="EnFormaModel.TBL_USUARIOS" />
+          <AssociationSet Name="FK_TBL_USUARIOS_TBL_PERFILES" Association="EnFormaModel.FK_TBL_USUARIOS_TBL_PERFILES">
+            <End Role="TBL_PERFILES" EntitySet="TBL_PERFILES" />
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+          </AssociationSet>
+          <FunctionImport Name="sel_byId_empleado" ReturnType="Collection(EnFormaModel.sel_byId_empleado_Result)">
+          <Parameter Name="id_empleado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="TblEmpleado" EntityType="EnFormaModel.TblEmpleado" />
+          <FunctionImport Name="sel_empleado_new" ReturnType="Collection(EnFormaModel.sel_empleado_new_Result1)" />
+          <EntitySet Name="TblSocio" EntityType="EnFormaModel.TblSocio" />
+          <AssociationSet Name="FK_TblHistorialPeso_TblSocio" Association="EnFormaModel.FK_TblHistorialPeso_TblSocio">
+            <End Role="TblSocio" EntitySet="TblSocio" />
+            <End Role="TblHistorialPeso" EntitySet="TblHistorialPeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecordsSocio_TblSocio" Association="EnFormaModel.FK_TblRecordsSocio_TblSocio">
+            <End Role="TblSocio" EntitySet="TblSocio" />
+            <End Role="TblRecordsSocio" EntitySet="TblRecordsSocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecordTicket_TblSocio_id_socio" Association="EnFormaModel.FK_TblRecordTicket_TblSocio_id_socio">
+            <End Role="TblSocio" EntitySet="TblSocio" />
+            <End Role="TblRecordTicket" EntitySet="TblRecordTicket" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="sel_HistorialPeso_Result">
+          <Property Type="Int32" Name="id_historial" Nullable="false" />
+          <Property Type="Int32" Name="id_socio" Nullable="false" />
+          <Property Type="Decimal" Name="prev_peso" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="prev_alto" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="prev_bajo" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="prev_cadera" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sel_socio_new_Result">
+          <Property Type="Int32" Name="id_socio" Nullable="false" />
+          <Property Type="Int32" Name="num_socio" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ap_paterno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ap_materno" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TblRecordTicket">
+          <Key>
+            <PropertyRef Name="id_record_ticket" />
+          </Key>
+          <Property Name="id_record_ticket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_socio" Type="Int32" Nullable="false" />
+          <Property Name="pliegueTricipal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="pliegueEscapular" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="trigliceridos" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Colesterol" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Glucosa" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="frecuenciaCardiaca" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="frecuanciArtSisfolica" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="frecuanciArtDiasfolica" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="porcentajeCargaPecho" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="porcentajeCargaPierna" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="metabolismoBasal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="TblSocio" Relationship="EnFormaModel.FK_TblRecordTicket_TblSocio_id_socio" FromRole="TblRecordTicket" ToRole="TblSocio" />
+        </EntityType>
+        <EntityType Name="TblRecordsSocio">
+          <Key>
+            <PropertyRef Name="id_relation" />
+          </Key>
+          <Property Name="id_relation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_socio" Type="Int32" Nullable="false" />
+          <Property Name="id_record" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblRecord" Relationship="EnFormaModel.FK_TblRecordsSocio_TblRecord" FromRole="TblRecordsSocio" ToRole="TblRecord" />
+          <NavigationProperty Name="TblSocio" Relationship="EnFormaModel.FK_TblRecordsSocio_TblSocio" FromRole="TblRecordsSocio" ToRole="TblSocio" />
+        </EntityType>
+        <EntityType Name="TblHistorialPeso">
+          <Key>
+            <PropertyRef Name="id_historial" />
+          </Key>
+          <Property Name="id_historial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_socio" Type="Int32" Nullable="false" />
+          <Property Name="prev_peso" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="prev_alto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="prev_bajo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="prev_pecho" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="TblSocio" Relationship="EnFormaModel.FK_TblHistorialPeso_TblSocio" FromRole="TblHistorialPeso" ToRole="TblSocio" />
+        </EntityType>
+        <EntityType Name="TblRecord">
+          <Key>
+            <PropertyRef Name="id_record" />
+          </Key>
+          <Property Name="id_record" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pesoInicial" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="pesoBajado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="pesoActual" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circCinturaInicial" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circCinturaBajado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circCinturaActual" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circCaderaInicial" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circCaderaBajado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circCaderaActual" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circPechoInicial" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circPechoBajado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="circPechoActual" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="altura" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="talla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="grasaCorporal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="edad" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="frecCardicaMaxima" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="frecCardicaReposo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="porceEntrenamiento" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="imc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="pie" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="guia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblRecordsSocio" Relationship="EnFormaModel.FK_TblRecordsSocio_TblRecord" FromRole="TblRecord" ToRole="TblRecordsSocio" />
+        </EntityType>
+        <Association Name="FK_TblRecordsSocio_TblRecord">
+          <End Type="EnFormaModel.TblRecord" Role="TblRecord" Multiplicity="1" />
+          <End Type="EnFormaModel.TblRecordsSocio" Role="TblRecordsSocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecord">
+              <PropertyRef Name="id_record" />
+            </Principal>
+            <Dependent Role="TblRecordsSocio">
+              <PropertyRef Name="id_record" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sel_HistorialPesoSocio_Result">
+          <Property Type="Int32" Name="id_record" Nullable="false" />
+          <Property Type="Int32" Name="id_socio" Nullable="false" />
+          <Property Type="Decimal" Name="pesoInicial" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pesoBajado" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pesoActual" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circCinturaInicial" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circCinturaBajado" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circCinturaActual" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circCaderaInicial" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circCaderaBajado" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circCaderaActual" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circPechoInicial" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circPechoBajado" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="circPechoActual" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="altura" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="talla" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="grasaCorporal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="imc" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pie" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="guia" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="observaciones" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <EntityType Name="TBL_PERFILES">
+          <Key>
+            <PropertyRef Name="ID_PERFIL" />
+          </Key>
+          <Property Name="ID_PERFIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERFIL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVO" Type="Boolean" Nullable="false" />
+          <Property Name="CREADO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREADOPOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTUALIZADO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ACTUALIZADOPOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_USUARIOS" Relationship="EnFormaModel.FK_TBL_USUARIOS_TBL_PERFILES" FromRole="TBL_PERFILES" ToRole="TBL_USUARIOS" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO_PAT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO_MAT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_AREA" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVO" Type="Boolean" Nullable="false" />
+          <Property Name="CREADO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREADOPOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTUALIZADO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ACTUALIZADOPOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_PERFILES" Relationship="EnFormaModel.FK_TBL_USUARIOS_TBL_PERFILES" FromRole="TBL_USUARIOS" ToRole="TBL_PERFILES" />
+        </EntityType>
+        <Association Name="FK_TBL_USUARIOS_TBL_PERFILES">
+          <End Type="EnFormaModel.TBL_PERFILES" Role="TBL_PERFILES" Multiplicity="1" />
+          <End Type="EnFormaModel.TBL_USUARIOS" Role="TBL_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERFILES">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sel_byId_empleado_Result">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="Int32" Name="num_empleado" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ap_paterno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ap_materno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="telefono" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="Max" />
+          <Property Type="DateTime" Name="fecha_registro" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fecha_baja" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="activo" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_modificacion" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="id_perfil" Nullable="false" />
+          <Property Type="String" Name="PERFIL" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TblEmpleado">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_empleado" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ap_paterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ap_materno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_baja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_perfil" Type="Int32" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="sel_empleado_new_result" >
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="Int32" Name="num_empleado" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" />
+          <Property Type="String" Name="ap_paterno" Nullable="false" />
+          <Property Type="String" Name="ap_materno" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sel_empleado_new_Result1">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="Int32" Name="num_empleado" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ap_paterno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ap_materno" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TblSocio">
+          <Key>
+            <PropertyRef Name="id_socio" />
+          </Key>
+          <Property Name="id_socio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_socio" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ap_paterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ap_materno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_baja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="compEstudios" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblHistorialPeso" Relationship="EnFormaModel.FK_TblHistorialPeso_TblSocio" FromRole="TblSocio" ToRole="TblHistorialPeso" />
+          <NavigationProperty Name="TblRecordsSocio" Relationship="EnFormaModel.FK_TblRecordsSocio_TblSocio" FromRole="TblSocio" ToRole="TblRecordsSocio" />
+          <NavigationProperty Name="TblRecordTicket" Relationship="EnFormaModel.FK_TblRecordTicket_TblSocio_id_socio" FromRole="TblSocio" ToRole="TblRecordTicket" />
+        </EntityType>
+        <Association Name="FK_TblHistorialPeso_TblSocio">
+          <End Type="EnFormaModel.TblSocio" Role="TblSocio" Multiplicity="1" />
+          <End Type="EnFormaModel.TblHistorialPeso" Role="TblHistorialPeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSocio">
+              <PropertyRef Name="id_socio" />
+            </Principal>
+            <Dependent Role="TblHistorialPeso">
+              <PropertyRef Name="id_socio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecordsSocio_TblSocio">
+          <End Type="EnFormaModel.TblSocio" Role="TblSocio" Multiplicity="1" />
+          <End Type="EnFormaModel.TblRecordsSocio" Role="TblRecordsSocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSocio">
+              <PropertyRef Name="id_socio" />
+            </Principal>
+            <Dependent Role="TblRecordsSocio">
+              <PropertyRef Name="id_socio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecordTicket_TblSocio_id_socio">
+          <End Type="EnFormaModel.TblSocio" Role="TblSocio" Multiplicity="1" />
+          <End Type="EnFormaModel.TblRecordTicket" Role="TblRecordTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSocio">
+              <PropertyRef Name="id_socio" />
+            </Principal>
+            <Dependent Role="TblRecordTicket">
+              <PropertyRef Name="id_socio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EnFormaModelStoreContainer" CdmEntityContainer="EnFormaEntities">
+          <EntitySetMapping Name="TblRecordTicket">
+            <EntityTypeMapping TypeName="EnFormaModel.TblRecordTicket">
+              <MappingFragment StoreEntitySet="TblRecordTicket">
+                <ScalarProperty Name="metabolismoBasal" ColumnName="metabolismoBasal" />
+                <ScalarProperty Name="porcentajeCargaPierna" ColumnName="porcentajeCargaPierna" />
+                <ScalarProperty Name="porcentajeCargaPecho" ColumnName="porcentajeCargaPecho" />
+                <ScalarProperty Name="frecuanciArtDiasfolica" ColumnName="frecuanciArtDiasfolica" />
+                <ScalarProperty Name="frecuanciArtSisfolica" ColumnName="frecuanciArtSisfolica" />
+                <ScalarProperty Name="frecuenciaCardiaca" ColumnName="frecuenciaCardiaca" />
+                <ScalarProperty Name="Glucosa" ColumnName="Glucosa" />
+                <ScalarProperty Name="Colesterol" ColumnName="Colesterol" />
+                <ScalarProperty Name="trigliceridos" ColumnName="trigliceridos" />
+                <ScalarProperty Name="pliegueEscapular" ColumnName="pliegueEscapular" />
+                <ScalarProperty Name="pliegueTricipal" ColumnName="pliegueTricipal" />
+                <ScalarProperty Name="id_socio" ColumnName="id_socio" />
+                <ScalarProperty Name="id_record_ticket" ColumnName="id_record_ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRecordsSocio">
+            <EntityTypeMapping TypeName="EnFormaModel.TblRecordsSocio">
+              <MappingFragment StoreEntitySet="TblRecordsSocio">
+                <ScalarProperty Name="id_record" ColumnName="id_record" />
+                <ScalarProperty Name="id_socio" ColumnName="id_socio" />
+                <ScalarProperty Name="id_relation" ColumnName="id_relation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblHistorialPeso">
+            <EntityTypeMapping TypeName="EnFormaModel.TblHistorialPeso">
+              <MappingFragment StoreEntitySet="TblHistorialPeso">
+                <ScalarProperty Name="prev_pecho" ColumnName="prev_pecho" />
+                <ScalarProperty Name="prev_bajo" ColumnName="prev_bajo" />
+                <ScalarProperty Name="prev_alto" ColumnName="prev_alto" />
+                <ScalarProperty Name="prev_peso" ColumnName="prev_peso" />
+                <ScalarProperty Name="id_socio" ColumnName="id_socio" />
+                <ScalarProperty Name="id_historial" ColumnName="id_historial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRecord">
+            <EntityTypeMapping TypeName="EnFormaModel.TblRecord">
+              <MappingFragment StoreEntitySet="TblRecord">
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="guia" ColumnName="guia" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="imc" ColumnName="imc" />
+                <ScalarProperty Name="porceEntrenamiento" ColumnName="porceEntrenamiento" />
+                <ScalarProperty Name="frecCardicaReposo" ColumnName="frecCardicaReposo" />
+                <ScalarProperty Name="frecCardicaMaxima" ColumnName="frecCardicaMaxima" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="grasaCorporal" ColumnName="grasaCorporal" />
+                <ScalarProperty Name="talla" ColumnName="talla" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="circPechoActual" ColumnName="circPechoActual" />
+                <ScalarProperty Name="circPechoBajado" ColumnName="circPechoBajado" />
+                <ScalarProperty Name="circPechoInicial" ColumnName="circPechoInicial" />
+                <ScalarProperty Name="circCaderaActual" ColumnName="circCaderaActual" />
+                <ScalarProperty Name="circCaderaBajado" ColumnName="circCaderaBajado" />
+                <ScalarProperty Name="circCaderaInicial" ColumnName="circCaderaInicial" />
+                <ScalarProperty Name="circCinturaActual" ColumnName="circCinturaActual" />
+                <ScalarProperty Name="circCinturaBajado" ColumnName="circCinturaBajado" />
+                <ScalarProperty Name="circCinturaInicial" ColumnName="circCinturaInicial" />
+                <ScalarProperty Name="pesoActual" ColumnName="pesoActual" />
+                <ScalarProperty Name="pesoBajado" ColumnName="pesoBajado" />
+                <ScalarProperty Name="pesoInicial" ColumnName="pesoInicial" />
+                <ScalarProperty Name="id_record" ColumnName="id_record" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="add_HistorialPesoSocio1" FunctionName="EnFormaModel.Store.add_HistorialPesoSocio" />
+          <FunctionImportMapping FunctionImportName="sel_HistorialPesoSocio" FunctionName="EnFormaModel.Store.sel_HistorialPesoSocio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnFormaModel.sel_HistorialPesoSocio_Result">
+                <ScalarProperty Name="id_record" ColumnName="id_record" />
+                <ScalarProperty Name="id_socio" ColumnName="id_socio" />
+                <ScalarProperty Name="pesoInicial" ColumnName="pesoInicial" />
+                <ScalarProperty Name="pesoBajado" ColumnName="pesoBajado" />
+                <ScalarProperty Name="pesoActual" ColumnName="pesoActual" />
+                <ScalarProperty Name="circCinturaInicial" ColumnName="circCinturaInicial" />
+                <ScalarProperty Name="circCinturaBajado" ColumnName="circCinturaBajado" />
+                <ScalarProperty Name="circCinturaActual" ColumnName="circCinturaActual" />
+                <ScalarProperty Name="circCaderaInicial" ColumnName="circCaderaInicial" />
+                <ScalarProperty Name="circCaderaBajado" ColumnName="circCaderaBajado" />
+                <ScalarProperty Name="circCaderaActual" ColumnName="circCaderaActual" />
+                <ScalarProperty Name="circPechoInicial" ColumnName="circPechoInicial" />
+                <ScalarProperty Name="circPechoBajado" ColumnName="circPechoBajado" />
+                <ScalarProperty Name="circPechoActual" ColumnName="circPechoActual" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="talla" ColumnName="talla" />
+                <ScalarProperty Name="grasaCorporal" ColumnName="grasaCorporal" />
+                <ScalarProperty Name="imc" ColumnName="imc" />
+                <ScalarProperty Name="pie" ColumnName="pie" />
+                <ScalarProperty Name="guia" ColumnName="guia" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TBL_PERFILES">
+            <EntityTypeMapping TypeName="EnFormaModel.TBL_PERFILES">
+              <MappingFragment StoreEntitySet="TBL_PERFILES">
+                <ScalarProperty Name="ACTUALIZADOPOR" ColumnName="ACTUALIZADOPOR" />
+                <ScalarProperty Name="ACTUALIZADO" ColumnName="ACTUALIZADO" />
+                <ScalarProperty Name="CREADOPOR" ColumnName="CREADOPOR" />
+                <ScalarProperty Name="CREADO" ColumnName="CREADO" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="PERFIL" ColumnName="PERFIL" />
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USUARIOS">
+            <EntityTypeMapping TypeName="EnFormaModel.TBL_USUARIOS">
+              <MappingFragment StoreEntitySet="TBL_USUARIOS">
+                <ScalarProperty Name="ACTUALIZADOPOR" ColumnName="ACTUALIZADOPOR" />
+                <ScalarProperty Name="ACTUALIZADO" ColumnName="ACTUALIZADO" />
+                <ScalarProperty Name="CREADOPOR" ColumnName="CREADOPOR" />
+                <ScalarProperty Name="CREADO" ColumnName="CREADO" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="ID_AREA" ColumnName="ID_AREA" />
+                <ScalarProperty Name="APELLIDO_MAT" ColumnName="APELLIDO_MAT" />
+                <ScalarProperty Name="APELLIDO_PAT" ColumnName="APELLIDO_PAT" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sel_byId_empleado" FunctionName="EnFormaModel.Store.sel_byId_empleado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnFormaModel.sel_byId_empleado_Result">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+                <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+                <ScalarProperty Name="PERFIL" ColumnName="PERFIL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TblEmpleado">
+            <EntityTypeMapping TypeName="EnFormaModel.TblEmpleado">
+              <MappingFragment StoreEntitySet="TblEmpleado">
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+                <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sel_empleado_new" FunctionName="EnFormaModel.Store.sel_empleado_new">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnFormaModel.sel_empleado_new_Result1">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+                <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TblSocio">
+            <EntityTypeMapping TypeName="EnFormaModel.TblSocio">
+              <MappingFragment StoreEntitySet="TblSocio">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="compEstudios" ColumnName="compEstudios" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fecha_baja" ColumnName="fecha_baja" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+                <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="num_socio" ColumnName="num_socio" />
+                <ScalarProperty Name="id_socio" ColumnName="id_socio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="false" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>
