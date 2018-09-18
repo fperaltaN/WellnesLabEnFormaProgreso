@@ -19,6 +19,7 @@ namespace DataTicketChart.Controllers
         TicketSocioFile objTicket = new TicketSocioFile();
         ClientRules clientRules = new ClientRules();
         EmployeeRules employeeRules = new EmployeeRules();
+        PDFTicket pdfticket = new PDFTicket();
 
         #region Views
         /// <summary>
@@ -264,8 +265,11 @@ namespace DataTicketChart.Controllers
             List<TblSocio> socioData = clientRules.getSocioById(socio);
             List<TblEmpleado> empleadoData = employeeRules.getEmployeeById(employee);
             List<Record> recordTicketData = clientRules.getDataClientRecord(socio);
-            bool impreso = objTicket.printTicketCustom(complete,socioData[0].num_socio.ToString(),
+            //bool impreso = objTicket.printTicketCustom(complete,socioData[0].num_socio.ToString(),
+            //    socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno, empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno, recordTicketData[0]);
+            bool impreso = pdfticket.printTicketCustom(complete, socioData[0].num_socio.ToString(),
                 socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno, empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno, recordTicketData[0]);
+
             return impreso;
         }
 
@@ -278,8 +282,11 @@ namespace DataTicketChart.Controllers
             List<TblSocio> socioData = clientRules.getSocioById(socio);
             List<TblEmpleado> empleadoData = employeeRules.getEmployeeById(employee);
             List<TblRecordTicket> recordTicketData = clientRules.getDataClientTicket(socio);
-            bool impreso = objTicket.printTicketClientRecord(complete, socioData[0].num_socio.ToString(), 
+            //bool impreso = objTicket.printTicketClientRecord(complete, socioData[0].num_socio.ToString(), 
+            //    socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno, empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno, recordTicketData[0]);
+            bool impreso = objTicket.printTicketClientRecord(complete, socioData[0].num_socio.ToString(),
                 socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno, empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno, recordTicketData[0]);
+
             return impreso;
         }
 

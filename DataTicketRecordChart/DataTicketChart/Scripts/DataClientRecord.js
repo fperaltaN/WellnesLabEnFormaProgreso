@@ -257,7 +257,7 @@ function autoCalculate(id) {
         case "frecCardicaReposo": 
             if ($('#customRadioMujer').is(':checked')) {
                 total = (226 - $('#edad').val()) * .8;
-            } else { total = 200 }
+            } else { total = (220 - $('#edad').val()) * .8 }
             $('#frecCardicaMaxima').val(total);            
             break;
         case "frecCardicaMaxima":

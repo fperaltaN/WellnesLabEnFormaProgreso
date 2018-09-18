@@ -10,14 +10,17 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.IO.Source;
 using iText.IO.Image;
+using System.Configuration;
+using DataTicketChart.Models.Domain;
+using WebApplication1.Models.Domain;
 
-namespace PDF
+namespace DataTicketChart
 {
     public class PDFTicket
     {
-        public String DEST = "D:";
-        String pathProgreso = "ticketPathProgreso";
-        public String IMAGEPATH = System.Web.HttpContext.Current.Server.MapPath("SaludAcero.jpg");
+        static String pathProgreso = "ticketPathProgreso";
+        public String DEST = ConfigurationManager.ConnectionStrings[pathProgreso].ConnectionString;
+        public String IMAGEPATH = System.Web.HttpContext.Current.Server.MapPath("LogoOficial.JPG");
         //System.Web.Hosting.HostingEnvironment.MapPath(path);
 
         /// <summary>
@@ -37,9 +40,10 @@ namespace PDF
                 // Adding an empty page
                 pdfDoc.AddNewPage();
                 //Creating the Image
-                Image image = new Image(ImageDataFactory.Create(IMAGEPATH));
+                Image image = new Image(ImageDataFactory.Create(IMAGEPATH.Replace("DataTicket\\", "")));
+                image.ScaleAbsolute(159f,109f);
                 // Creating an Area Break
-                Paragraph para = new Paragraph(lines).SetFontSize(10);
+                Paragraph para = new Paragraph(lines).SetFontSize(8);
                 // Creating a Document
                 Document document = new Document(pdfDoc,PageSize.A0);
                 // Adding Image  to the PDF
@@ -54,7 +58,8 @@ namespace PDF
             {
                 Console.WriteLine(ex.ToString());
                 return false;
-            }
+            }
+
         }
 
         /// <summary>
