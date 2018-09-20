@@ -284,7 +284,7 @@ namespace DataTicketChart.Controllers
             List<TblRecordTicket> recordTicketData = clientRules.getDataClientTicket(socio);
             //bool impreso = objTicket.printTicketClientRecord(complete, socioData[0].num_socio.ToString(), 
             //    socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno, empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno, recordTicketData[0]);
-            bool impreso = objTicket.printTicketClientRecord(complete, socioData[0].num_socio.ToString(),
+            bool impreso = pdfticket.printTicketClientRecord(complete, socioData[0].num_socio.ToString(),
                 socioData[0].nombre + " " + socioData[0].ap_materno + " " + socioData[0].ap_paterno, empleadoData[0].nombre + " " + empleadoData[0].ap_materno + " " + empleadoData[0].ap_paterno, recordTicketData[0]);
 
             return impreso;

@@ -29,7 +29,7 @@ namespace DataTicketChart
         /// <param name="lines"></param>
         /// <param name="Nombre"></param>
         /// <returns></returns>
-        public Boolean CreatePdf(String lines, String Nombre)
+        public Boolean CreatePdf(String lines, String Nombre,Boolean newPage)
         {
             try
             {
@@ -43,9 +43,9 @@ namespace DataTicketChart
                 Image image = new Image(ImageDataFactory.Create(IMAGEPATH.Replace("DataTicket\\", "")));
                 image.ScaleAbsolute(159f,109f);
                 // Creating an Area Break
-                Paragraph para = new Paragraph(lines).SetFontSize(8);
+                Paragraph para = new Paragraph(lines).SetFontSize(10);
                 // Creating a Document
-                Document document = new Document(pdfDoc,PageSize.A0);
+                Document document = new Document(pdfDoc,PageSize.LETTER);
                 // Adding Image  to the PDF
                 document.Add(image);
                 // Adding area break to the PDF
@@ -80,8 +80,8 @@ namespace DataTicketChart
                      " " + "***** METABOLISMO  ****** " + Environment.NewLine +
                      " " + "*" + "Basal: " + registro.metabolismoBasal +
                     "   " + Environment.NewLine;
-            String lines = "WELLNESS LAB EN FORMA" + "" + Environment.NewLine +
-                     "EXPEDIDO EN:" + Environment.NewLine +
+            String lines = /*"WELLNESS LAB EN FORMA" + "" + Environment.NewLine +
+                     "EXPEDIDO EN:" + Environment.NewLine +*/
                      "CALLE ODONTOLOGÍA NO. 13" + Environment.NewLine +
                      "LOC. 1 COLONIA SPUAZ" + Environment.NewLine +
                      "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
@@ -113,7 +113,7 @@ namespace DataTicketChart
                     "VIVE LA EXPERIENCIA WELLNESS LAB EN FORMA" + " " + Environment.NewLine +
                      "GRACIAS POR SU PREFERENCIA" + " ";
 
-            return CreatePdf(lines, @"\Ticket_Progreso_Custom_" + (complete ? "_Completo_" : "_Parcial_") + numSocio + "_Socio_ " + nombreCompleto + "_" + DateTime.Now.ToLongDateString() + ".pdf");
+            return CreatePdf(lines, @"\Ticket_Progreso_Custom_" + (complete ? "_Completo_" : "_Parcial_") + numSocio + "_Socio_ " + nombreCompleto + "_" + DateTime.Now.ToLongDateString() + ".pdf", complete);
         }
 
         /// <summary>
@@ -141,8 +141,8 @@ namespace DataTicketChart
                           " " + "*" + "IMC: " + registro.imc + Environment.NewLine +
                           " " + "*" + "P.I.E: " + registro.pie + Environment.NewLine +
                           "   " + Environment.NewLine;
-            String lines = "WELLNESS LAB EN FORMA" + Environment.NewLine +
-                  "EXPEDIDO EN:" + Environment.NewLine +
+            String lines = /*"WELLNESS LAB EN FORMA" + Environment.NewLine +
+                  "EXPEDIDO EN:" + Environment.NewLine +*/
                   "CALLE ODONTOLOGÍA NO. 13 LOC. 1 COLONIA SPUAZ" + Environment.NewLine +
                   "MEXICO, GPE. ZACATECAS" + Environment.NewLine +
                   " " + Environment.NewLine +
@@ -150,11 +150,7 @@ namespace DataTicketChart
                   "Socio: " + numSocio + " " + nombreCompleto + " " + Environment.NewLine +
                   "Fecha de revisión: " + DateTime.Now.ToShortDateString() + "" + Environment.NewLine +
                   "EDAD: " + registro.edad + " TALLA: " + registro.talla + " " + Environment.NewLine +
-                  "   " + Environment.NewLine +
-                  " " + "***** DATOS SOCIO  ****** " + Environment.NewLine +
-                  " " + "*" + "Altura: " + registro.altura + Environment.NewLine +
-                  " " + "*" + "Talla: " + registro.talla + Environment.NewLine +
-                  " " + "*" + "Grasa Corporal: " + registro.grasaCorporal + Environment.NewLine +
+                  "ALTURA: " + registro.altura + " GRASA CORPORAL: " + registro.grasaCorporal + " " + Environment.NewLine +
                   "   " + Environment.NewLine +
                   " " + "***** PESO  ****** " + Environment.NewLine +
                   " " + "*" + "Inicial: " + registro.pesoInicial + Environment.NewLine +
@@ -171,13 +167,12 @@ namespace DataTicketChart
                   " " + "*" + "Guia: " + registro.guia + Environment.NewLine +
                   " " + "*" + "Observaciones: " + registro.observaciones + Environment.NewLine +
                   " " + "***** REGISTRADO POR  ****** " + Environment.NewLine +
-                  "   " + Environment.NewLine +
                   "ENTRENADOR: " + entrenador + Environment.NewLine +
                   " " + " " + Environment.NewLine +
                   " " + "TU SALUD ES NUESTRA PASION..." + " " + Environment.NewLine +
                  "VIVE LA EXPERIENCIA WELLNESS LAB EN FORMA" + " " + Environment.NewLine +
                   "GRACIAS POR SU PREFERENCIA" + " ";
-            return CreatePdf(lines, @"\Ticket_Progreso_Custom_" + (complete ? "_Completo_" : "_Parcial_") + numSocio + "_Socio_ " + nombreCompleto + "_" + DateTime.Now.ToLongDateString() + ".pdf");
+            return CreatePdf(lines, @"\Ticket_Progreso_Custom_" + (complete ? "_Completo_" : "_Parcial_") + numSocio + "_Socio_ " + nombreCompleto + "_" + DateTime.Now.ToLongDateString() + ".pdf", complete);
         }
 
     }
